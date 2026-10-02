@@ -1,0 +1,10 @@
+# 價格檔很大，只留在本機
+data/prices/
+data/ASXListedCompanies*.csv
+data/universe_excluded.csv
+data/download_log.csv
+data/breadth_*.csv
+__pycache__/
+.idea/
+.venv/
+data/.run_daily.lock
