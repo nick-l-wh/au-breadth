@@ -101,7 +101,7 @@ details p { margin: 6px 0; }
 
   <details>
     <summary>指標定義與資料說明</summary>
-    <p>股票池：ASX 上市普通股（排除 ETF、基金、信託、混合證券與權證），並要求當日收盤價 ≥ A$0.50 且 20 日平均成交金額 ≥ A$20 萬，以排除仙股與低流動性股票。價格為 Yahoo Finance 的調整後收盤價（含分割與股息）。</p>
+    <p>股票池：ASX 上市普通股（排除 ETF、基金、信託、混合證券與權證），並要求當日收盤價 ≥ A$0.40 且 20 日平均成交金額 ≥ A$10 萬，以排除仙股與低流動性股票（門檻經比較多組組合後選定：放寬價格會明顯增加 ±4% 異動的雜訊）。價格為 Yahoo Finance 的調整後收盤價（含分割與股息）。</p>
     <p>4% 漲／跌：當日報酬 ≥ +4% 或 ≤ −4% 的家數（未加成交量條件）。5／10 日比率＝近 5／10 日漲 4% 家數合計 ÷ 跌 4% 家數合計。</p>
     <p>季度：65 個交易日報酬 ±25%。月度：21 個交易日報酬 ±25%、±50%。34 日：34 個交易日報酬 ±13%。T2108：收盤高於 40 日均線的股票比例。</p>
     <p>極端值通常可作逆向參考（極度弱勢常見於底部、極度強勢常見於過熱），需綜合判讀，單一指標不構成買賣訊號。</p>
@@ -149,7 +149,7 @@ async function load() {
     return;
   }
   const last = D[D.length - 1];
-  $("#asof").textContent = "最新資料日：" + last.Date + "　｜　股票池 " + fmt(last.universe_size, 0) + " 隻　｜　共 " + D.length + " 個交易日";
+  $("#asof").textContent = "最新資料日：" + last.Date + "　｜　股票池 " + fmt(last.universe_size, 0) + " 隻（收盤價 ≥ A$0.40、20 日均成交額 ≥ A$10 萬）　｜　共 " + D.length + " 個交易日";
   buildPct(); renderTiles(); renderRanges(); renderCharts(); renderTable();
 }
 
